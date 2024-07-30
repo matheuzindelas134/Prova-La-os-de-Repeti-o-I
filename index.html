@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Cálculo de Notas</title>
+</head>
+<body>
+    <script>
+        let numeroDeEstudantes = parseInt(prompt("Digite o número total de estudantes na turma:"));
+
+        if (isNaN(numeroDeEstudantes) || numeroDeEstudantes <= 0) {
+            alert("Número de estudantes inválido. O programa será encerrado.");
+        } else {
+            let somaDasNotas = 0;
+            let maiorNota = -Infinity;
+            let menorNota = Infinity;
+
+            let i = 0;
+            while (i < numeroDeEstudantes) {
+                let nota = parseFloat(prompt(`Digite a nota do aluno ${i + 1}:`));
+
+                if (isNaN(nota) || nota < 0 || nota > 10) {
+                    alert("Nota inválida. Por favor, insira um valor entre 0 e 10.");
+                } else {
+                    somaDasNotas += nota;
+
+                    if (nota > maiorNota) {
+                        maiorNota = nota;
+                    }
+
+                    if (nota < menorNota) {
+                        menorNota = nota;
+                    }
+
+                    i++;
+                }
+            }
+
+            let mediaDasNotas = somaDasNotas / numeroDeEstudantes;
+
+            alert(`Média da turma: ${mediaDasNotas.toFixed(2)}
+Maior nota: ${maiorNota.toFixed(2)}
+Menor nota: ${menorNota.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>
